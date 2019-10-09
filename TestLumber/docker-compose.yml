@@ -1,0 +1,19 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: TestLumber
+    environment:
+      - APPLICATION_HOST=localhost
+      - APPLICATION_PORT=4000
+      - DATABASE_URL=postgres://postgres:postgres@database-1.cswncgslisak.us-east-1.rds.amazonaws.com:5432/postgres
+      - DATABASE_SCHEMA=public
+      - DATABASE_SSL=false
+      - DATABASE_ENCRYPT=false
+      - AUTH_SECRET=6a5250e3c963e5069dde4f6b82efd472f988a1d9d0070ee8569709b8cf812727a7b0a911f13a3047e83238badd4acb78
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./:/usr/src/app

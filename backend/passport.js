@@ -8,7 +8,8 @@ passport.deserializeUser(function(user, done) {
   console.log("deserialize");
   return done(null, user);
 });
-passport.use(
+//postgres:postgres@database-1.cswncgslisak.us-east-1.rds.amazonaws.com:5432/postgres
+postgres: passport.use(
   new GoogleStrategy(
     {
       clientID:
