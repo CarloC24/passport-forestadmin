@@ -1,0 +1,19 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: test
+    environment:
+      - APPLICATION_HOST=localhost
+      - APPLICATION_PORT=4000
+      - DATABASE_URL=postgres://postgres:postgres@database-1.cswncgslisak.us-east-1.rds.amazonaws.com:5432/postgres
+      - DATABASE_SCHEMA=public
+      - DATABASE_SSL=false
+      - DATABASE_ENCRYPT=false
+      - AUTH_SECRET=7364146e7d9deb1c9196445f7f7b4027a1575c5736645664797dd9bd30c272da2485ae5742702fbcf56bce674107f06f
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./:/usr/src/app
